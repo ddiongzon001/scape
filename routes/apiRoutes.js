@@ -19,6 +19,7 @@ module.exports = function (app) {
                 let result = {};
 
                 result.title = $(this).children(`a`).text();
+                result.summary = $(this).children(`a`).text();
                 result.link = $(this).children(`a`).attr(`href`);
 
                 // create a new article using the result object
