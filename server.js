@@ -3,16 +3,13 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
-// scraping tools
-const axios = require("axios");
-const cheerio = require("cheerio");
-
-// require all models & set the port
-const db = require("./models");
-const PORT = 8000;
-
 // initialize express
 const app = express();
+
+// require all models, & routes & set the port
+const db = require("./models");
+require("./routes/apiRoutes")(app);
+const PORT = 8000;
 
 // configure middleware
 
@@ -28,3 +25,7 @@ app.use(express.static("public"));
 const MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost/mongoHeadlines";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
+// Start the server
+app.listen(PORT, function(){
+    console.log("App running on port http://localhost:" + PORT + " !");
+})
