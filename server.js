@@ -26,5 +26,5 @@ app.use(express.static("public"));
 
 //Connect to the Mongo DB
 const MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost/mongoHeadlines";
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
