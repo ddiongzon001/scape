@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //Connect to the Mongo DB
-const MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost/mongoHeadlines";
+const MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost/mongoAnimes";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Set Handlebars.

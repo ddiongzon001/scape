@@ -9,8 +9,9 @@ module.exports = function (app) {
 
     // a GET route for scraping the website
     app.get("/scrape", (req, res) => {
+        // db.Anime.drop();
         // using axios to get the html body
-        axios.get("https://www.livechart.me/fall-2019/tv").then(response => {
+        axios.get("https://www.livechart.me/summer-2019/tv").then(response => {
             // we load the body of the html into the $
             let $ = cheerio.load(response.data);
 
@@ -22,10 +23,10 @@ module.exports = function (app) {
                 result.summary = $(this).find(`.anime-synopsis`).children(`p`).text();
                 result.link = $(this).find(`h3`).children(`a`).attr(`href`);
                 result.image = $(this).find(`.poster-container`).children(`img`).attr(`src`);
-
+                
                 // create a new article using the result object
                 db.Anime.create(result)
-                    .then(dbArticle => console.log(dbArticle))
+                    // .then(dbArticle => console.log(dbArticle))
                     .catch(err => console.log(err));
             });
 
@@ -37,7 +38,7 @@ module.exports = function (app) {
     app.get("/", function(req,res){
         db.Anime.find({})
         .then(function(dbArticle){
-            // console.log(dbArticle);
+            console.log(dbArticle);
             var hbsObject = {
                 article: dbArticle
             }
@@ -46,11 +47,4 @@ module.exports = function (app) {
             res.json(err);
         })
       })
-
-    app.get("/api/Anime", function(req,res){
-        db.Anime.find({})
-        .then(function(dbArticle){
-            var hb
-        })
-    })
 }

@@ -15,20 +15,27 @@
                 <a class="nav-link" href="#">Saved Anime</a>
             </li>
         </ul>
-    </div>
-    <div class="inline">
-        <button type="button" class="btn btn-dark" id="render">Get New Anime</button>
-        <button type="button" class="btn btn-dark" id="clear">Clear Anime</button>
+        <div class="inline">
+            <button type="button" class="btn btn-dark" id="render">Get New Anime</button>
+            <button type="button" class="btn btn-dark" id="clear">Clear Anime</button>
+        </div>
     </div>
 </nav>
 
 <div id="wrapper">
     <div id="articles">
+
         {{#each article}}
-        <p>{{title}}</p>
-        <p>{{summary}}</p>
-        <p>{{link}}</p>
-        <img src="{{{image}}}">
+        <div class="card">
+            <h5 class="card-header">{{title}}</h5>
+            <div class="card-body">
+                <p>{{image}}</p>
+                <p>{{link}}</p>
+                <img src="{{image}}">
+                <p class="card-text">{{summary}}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
         {{/each}}
     </div>
     <div id="notes"></div>
