@@ -1,11 +1,35 @@
+{{!-- nav bar --}}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <a class="navbar-brand" href="#">Your Anime List</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Saved Anime</a>
+            </li>
+        </ul>
+    </div>
+    <div class="inline">
+        <button type="button" class="btn btn-dark" id="render">Get New Anime</button>
+        <button type="button" class="btn btn-dark" id="clear">Clear Anime</button>
+    </div>
+</nav>
+
 <div id="wrapper">
     <h1>Note Scrapper</h1>
     <h2><i>If you can do this...the homework should be no problem.</i></h2>
     <div id="articles">
         {{#each article}}
-            <p>{{title}}</p>
-            <p>{{summary}}</p>
-            <p>{{link}}</p>
+        <p>{{title}}</p>
+        <p>{{summary}}</p>
+        <p>{{link}}</p>
         {{/each}}
     </div>
     <div id="notes"></div>

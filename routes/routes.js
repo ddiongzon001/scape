@@ -10,7 +10,7 @@ module.exports = function (app) {
     // a GET route for scraping the website
     app.get("/scrape", (req, res) => {
         // using axios to get the html body
-        axios.get("https://www.livechart.me/summer-2019/tv").then(response => {
+        axios.get("https://www.livechart.me/fall-2019/tv").then(response => {
             // we load the body of the html into the $
             let $ = cheerio.load(response.data);
 
@@ -46,4 +46,11 @@ module.exports = function (app) {
             res.json(err);
         })
       })
+
+    app.get("/api/Anime", function(req,res){
+        db.Anime.find({})
+        .then(function(dbArticle){
+            var hb
+        })
+    })
 }

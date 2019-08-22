@@ -8,7 +8,7 @@ const app = express();
 
 // require all models, & routes & set the port
 const db = require("./models");
-require("./routes/apiRoutes")(app);
+require("./routes/routes.js")(app);
 const PORT = 8000;
 
 // use morgan logger for logging requests
