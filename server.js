@@ -11,8 +11,6 @@ const db = require("./models");
 require("./routes/apiRoutes")(app);
 const PORT = 8000;
 
-// configure middleware
-
 // use morgan logger for logging requests
 app.use(logger("dev"));
 // parse request body as JSON
@@ -24,6 +22,13 @@ app.use(express.static("public"));
 //Connect to the Mongo DB
 const MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost/mongoHeadlines";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 
 // Start the server
 app.listen(PORT, function(){

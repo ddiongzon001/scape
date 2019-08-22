@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 //make a new object for the Article that has title, link, comment & summary
-var ArticleSchema = new Schema({
+var AnimeSchema = new Schema({
     title:{
         type: String,
         required: true
@@ -16,15 +16,18 @@ var ArticleSchema = new Schema({
     },
     summary:{
         type: String,
+    },
+    image:{
+        type: String,
         required: true
     },
     // this links to the Note id (this is basically the eqvilent of join in mysql)
-    note: {
+    comment: {
         type: Schema.Types.ObjectId,
         ref: "Comment" 
     }
 })
 
-var Article = mongoose.model("Article", ArticleSchema);
+var Anime = mongoose.model("Anime", AnimeSchema);
 
-module.exports = Article;
+module.exports = Anime;
