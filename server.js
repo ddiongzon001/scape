@@ -9,7 +9,7 @@ const app = express();
 // require all models, & routes & set the port
 const db = require("./models");
 require("./routes/routes.js")(app);
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 // use morgan logger for logging requests
 app.use(logger("dev"));
