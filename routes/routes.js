@@ -36,7 +36,7 @@ module.exports = function (app) {
     })
 
     app.get("/", function(req,res){
-        db.Anime.find({})
+        db.Anime.find({}).limit(4)
         .then(function(dbArticle){
             console.log(dbArticle);
             var hbsObject = {
