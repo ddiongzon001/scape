@@ -1,7 +1,15 @@
+#articles{
+    padding-top: 2%;
+}
 .card{
-    margin: 3%;
+margin-left: 3%;
+margin-right: 3%;
 }
 
+.fas{
+    float: right;
+    padding-right: 1%;
+}
 img{
     float: left;
     margin-right: 2%;

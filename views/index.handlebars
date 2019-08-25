@@ -25,16 +25,41 @@
 <div id="wrapper">
     <div id="articles">
 
-        {{#each article}}
-        <div class="card">
-            <h5 class="card-header">{{title}}</h5>
-            <div class="card-body">
-                <img src="{{image}}">
-                <p class="card-text">{{summary}}</p>
-                <a href="https://www.livechart.me{{link}}" class="btn btn-danger">Learn More!</a>
+        <div class="accordion" id="accordionExample">
+            {{#each article}}
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5>{{title}}
+                        <i class="fas fa-save"></i>
+                        <i class="fas fa-sticky-note" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne"></i>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <img src="{{image}}">
+                    <p class="card-text">{{summary}}</p>
+                    <a href="https://www.livechart.me{{link}}" class="btn btn-danger">Learn More!</a>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Title</label>
+                                <input class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Title Here">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Comment</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Comment Here"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
+
+            {{/each}}
         </div>
-        {{/each}}
     </div>
-    <div id="notes"></div>
 </div>
+
+<div id="comment"></div>
