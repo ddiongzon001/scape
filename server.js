@@ -21,7 +21,7 @@ app.use(express.static("public"));
 
 //Connect to the Mongo DB
 const MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost/mongoAnimes";
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI);
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
