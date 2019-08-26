@@ -67,4 +67,23 @@ $(function () {
 
         location.reload();
     })
+
+    // this is the on click button for saving the note
+    $(document).on("click", "#delete", function () {
+        console.log(`this was clicked!`);
+        let id = $(this).attr(`data-commentId`);
+        // let comment = 
+        console.log(id);
+        // console.log(comment)
+        // console.log($(`.title${id}`).val())
+
+        $.ajax({
+            method: "DELETE",
+            url: "/anime/" + id,
+        }).then(function (){
+            console.log('this was deleted')
+        });
+
+        location.reload();
+    })
 });

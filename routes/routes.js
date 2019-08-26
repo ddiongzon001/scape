@@ -24,12 +24,12 @@ module.exports = function (app) {
                 result.title = $(this).find(`h3`).children(`a`).text();
                 result.summary = $(this).find(`.anime-synopsis`).children(`p`).text();
                 result.link = $(this).find(`h3`).children(`a`).attr(`href`);
-                
+
                 let image = $(this).find(`.poster-container`).children(`img`).attr(`src`)
 
-                if(image.includes(`transparent`)){
+                if (image.includes(`transparent`)) {
                     result.image = `https://u.cubeupload.com/diskinected/nopicture.png`
-                }else{
+                } else {
                     result.image = image;
                 }
 
@@ -57,14 +57,14 @@ module.exports = function (app) {
 
     app.delete("/", (req, res) => {
         db.Anime.remove({})
-        .catch(err => console.log(err));
+            .catch(err => console.log(err));
     })
 
     // route for grabbing a comment associated with the anime
-    app.get("/anime/:id", function(req,res){
-        db.Anime.findOne({_id: req.params.id}).populate(`comment`).then(function(dbAnime){
+    app.get("/anime/:id", function (req, res) {
+        db.Anime.findOne({ _id: req.params.id }).populate(`comment`).then(function (dbAnime) {
             res.json(dbAnime);
-        }).catch(function(err){
+        }).catch(function (err) {
             res.json(err);
         });
     });
@@ -74,13 +74,21 @@ module.exports = function (app) {
         console.log(req.body);
         console.log(req.params.id);
         db.Comment.create(req.body)
-        .then(function (dbComment) {
-            return db.Anime.findOneAndUpdate({ _id: req.params.id }, { comment: dbComment._id }, { new: true });
-        }).then(function (dbAnime) {
-            res.json(dbAnime);
-        }).catch(function (err) {
-            res.json(err);
-        });
+            .then(function (dbComment) {
+                return db.Anime.findOneAndUpdate({ _id: req.params.id }, { comment: dbComment._id }, { new: true });
+            }).then(function (dbAnime) {
+                res.json(dbAnime);
+            }).catch(function (err) {
+                res.json(err);
+            });
+    });
+
+    // route for saving a comment for the anime
+    app.delete("/anime/:id", function (req, res) {
+        db.Comment.remove({ _id: req.params.id })
+        .then(function () {
+            return db.Anime.findOneAndUpdate({ comment: req.params.id }, { $unset: {comment: ""}}, { new: true });
+        }).catch(err => console.log(err));
     });
 
 }
