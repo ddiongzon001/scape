@@ -1,3 +1,11 @@
+.form-inline{
+    margin-left: 1%;
+}
+
+.info{
+    color: white;
+}
+
 #articles{
     padding-top: 2%;
     padding-bottom: 2%;
