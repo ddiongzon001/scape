@@ -24,7 +24,14 @@ module.exports = function (app) {
                 result.title = $(this).find(`h3`).children(`a`).text();
                 result.summary = $(this).find(`.anime-synopsis`).children(`p`).text();
                 result.link = $(this).find(`h3`).children(`a`).attr(`href`);
-                result.image = $(this).find(`.poster-container`).children(`img`).attr(`src`);
+                
+                let image = $(this).find(`.poster-container`).children(`img`).attr(`src`)
+
+                if(image.includes(`transparent`)){
+                    result.image = `https://u.cubeupload.com/diskinected/nopicture.png`
+                }else{
+                    result.image = image;
+                }
 
                 // create a new article using the result object
                 db.Anime.create(result)
@@ -41,7 +48,7 @@ module.exports = function (app) {
     })
 
     app.get("/", function (req, res) {
-        db.Anime.find({}).limit(4)
+        db.Anime.find({})
             .then(function (dbArticle) {
                 console.log(dbArticle);
                 var hbsObject = {
