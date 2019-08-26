@@ -46,9 +46,14 @@
             <div class="card">
                 <div class="card-header" id="heading{{_id}}">
                     <h5>{{title}}
-                        <i class="fas fa-save"></i>
-                        <i class="fas fa-sticky-note" data-toggle="collapse" data-target="#collapse{{_id}}"
-                            aria-expanded="true" aria-controls="collapse{{_id}}"></i>
+                        <i class="fas fa-save" data-id="{{_id}}"></i>
+                        {{#if comment}}
+                        <i class="fas fa-sticky-note text-success" data-id="{{_id}}" data-toggle="collapse"
+                            data-target="#collapse{{_id}}" aria-expanded="true" aria-controls="collapse{{_id}}"></i>
+                        {{else}}
+                        <i class="fas fa-sticky-note" data-id="{{_id}}" data-toggle="collapse"
+                            data-target="#collapse{{_id}}" aria-expanded="true" aria-controls="collapse{{_id}}"></i>
+                        {{/if}}
                     </h5>
                 </div>
                 <div class="card-body">

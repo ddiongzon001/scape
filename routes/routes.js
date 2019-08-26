@@ -42,11 +42,6 @@ module.exports = function (app) {
         });
     })
 
-    app.delete("/", (req, res) => {
-        db.Anime.remove({})
-        .catch(err => console.log(err));
-    })
-
     app.get("/", function (req, res) {
         db.Anime.find({})
             .then(function (dbArticle) {
@@ -58,6 +53,11 @@ module.exports = function (app) {
             }).catch(function (err) {
                 res.json(err);
             })
+    })
+
+    app.delete("/", (req, res) => {
+        db.Anime.remove({})
+        .catch(err => console.log(err));
     })
 
     // route for grabbing a comment associated with the anime

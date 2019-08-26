@@ -8,7 +8,8 @@ const Schema = mongoose.Schema;
 var AnimeSchema = new Schema({
     title:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     link:{
         type: String,
