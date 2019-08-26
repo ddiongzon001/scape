@@ -33,8 +33,9 @@ module.exports = function (app) {
         });
     })
 
-    app.delete("/scrape", (req, res) => {
-        db.Anime.remove({}).catch(err => console.log(err));
+    app.delete("/", (req, res) => {
+        db.Anime.remove({})
+        .catch(err => console.log(err));
     })
 
     app.get("/", function (req, res) {

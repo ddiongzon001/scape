@@ -3,23 +3,25 @@ $(function () {
     // this saves the user's preference of what page they want to get anime from
     $("#render").on("click", function () {
         console.log(`this was clicked!`);
-        $.get("/scrape", function () {
-            console.log(`this was scraped!`)
-            location.reload();
+
+        $.get("/scrape", function(){
+            console.log("went through this");
         })
+
+        setTimeout(function(){location.reload()}, 5000);
     })
 
     $("#clear").on("click", function(){
         console.log(`thisss was clicked`);
         $.ajax({
-            URL: "/scape",
+            URL: "/",
             method: "DELETE"
         }).then(function(){
             console.log(`everything was deleted`);
-            location.reload();
+            
         })
-    }
-    )
+        location.reload();
+    })
 
     $(".fa-sticky-note").on("click", function(){
         
