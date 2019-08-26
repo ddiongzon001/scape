@@ -28,11 +28,11 @@
         <div class="accordion" id="accordionExample">
             {{#each article}}
             <div class="card">
-                <div class="card-header" id="headingOne">
+                <div class="card-header" id="heading{{_id}}">
                     <h5>{{title}}
                         <i class="fas fa-save"></i>
-                        <i class="fas fa-sticky-note" data-toggle="collapse" data-target="#collapseOne"
-                            aria-expanded="true" aria-controls="collapseOne"></i>
+                        <i class="fas fa-sticky-note" data-toggle="collapse" data-target="#collapse{{_id}}"
+                            aria-expanded="true" aria-controls="collapse{{_id}}"></i>
                     </h5>
                 </div>
                 <div class="card-body">
@@ -40,7 +40,7 @@
                     <p class="card-text">{{summary}}</p>
                     <a href="https://www.livechart.me{{link}}" class="btn btn-danger">Learn More!</a>
                 </div>
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div id="collapse{{_id}}" class="collapse" aria-labelledby="heading{{_id}}" data-parent="#accordionExample">
                     <div class="card-body">
                         <form>
                             <div class="form-group">
