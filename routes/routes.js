@@ -8,11 +8,12 @@ const cheerio = require("cheerio");
 module.exports = function (app) {
 
     // a GET route for scraping the website
-    app.get("/scrape/:season", (req, res) => {
+    app.get("/scrape/:season/:year", (req, res) => {
         // db.Anime.drop();
         let season = req.params.season;
+        let year = req.params.year;
         // using axios to get the html body
-        axios.get(`https://www.livechart.me/${season}-2019/tv`).then(response => {
+        axios.get(`https://www.livechart.me/${season}-${year}/tv`).then(response => {
             // we load the body of the html into the $
             let $ = cheerio.load(response.data);
 

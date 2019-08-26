@@ -5,10 +5,12 @@ $(function () {
         console.log(`this was clicked!`);
 
         let season = $("#inlineFormCustomSelectPref").val();
+        let year = $("#inlineFormCustomSelectPref2").val();
 
         console.log(season);
+        console.log(year);
 
-        $.get(`/scrape/${season}`, function(){
+        $.get(`/scrape/${season}/${year}`, function(){
             console.log("went through this");
         })
 
