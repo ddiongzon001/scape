@@ -42,21 +42,19 @@
                 </div>
                 <div id="collapse{{_id}}" class="collapse" aria-labelledby="heading{{_id}}" data-parent="#accordionExample">
                     <div class="card-body">
-                        <form>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Title</label>
-                                <input class="form-control title" id="exampleFormControlInput1"
+                                <input class="form-control title{{_id}}" id="exampleFormControlInput1"
                                     placeholder="Title Here">
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Comment</label>
-                                <textarea class="form-control body" id="exampleFormControlTextarea1" rows="3" placeholder="Comment Here"></textarea>
+                                <textarea class="form-control body{{_id}}" id="exampleFormControlTextarea1" rows="3" placeholder="Comment Here"></textarea>
                             </div>
                             <div>
                                 <button type="button" class="btn btn-dark" id="save" data-id="{{_id}}">Save Comment</button>
                                 <button type="button" class="btn btn-dark" id="delete" data-id="{{_id}}">Delete Comment</button>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>

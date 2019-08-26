@@ -30,9 +30,11 @@ module.exports = function (app) {
                     .catch(err => console.log(err));
             });
 
-            res.send(`Scrape Complete`);
-
         });
+    })
+
+    app.delete("/scrape", (req, res) => {
+        db.Anime.remove({}).catch(err => console.log(err));
     })
 
     app.get("/", function (req, res) {
@@ -59,6 +61,8 @@ module.exports = function (app) {
 
     // route for saving a comment for the anime
     app.post("/anime/:id", function (req, res) {
+        console.log(req.body);
+        console.log(req.params.id);
         db.Comment.create(req.body)
         .then(function (dbComment) {
             return db.Anime.findOneAndUpdate({ _id: req.params.id }, { comment: dbComment._id }, { new: true });

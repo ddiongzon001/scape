@@ -9,25 +9,43 @@ $(function () {
         })
     })
 
+    $("#clear").on("click", function(){
+        console.log(`thisss was clicked`);
+        $.ajax({
+            URL: "/scape",
+            method: "DELETE"
+        }).then(function(){
+            console.log(`everything was deleted`);
+            location.reload();
+        })
+    }
+    )
+
+    $(".fa-sticky-note").on("click", function(){
+        
+    })
+
     // this is the on click button for saving the note
     $(document).on("click", "#save", function () {
         console.log(`this was clicked!`);
         let id = $(this).attr(`data-id`);
-        let comment = {
-            title: $(`.title`).val(),
-            body: $(`.body`).val(),
-        }
-        console.log(comment)
+        // let comment = 
+        console.log(id);
+        // console.log(comment)
+        console.log($(`.title${id}`).val())
 
         $.ajax({
             method: "POST",
             url: "/anime/" + id,
-            data: comment
+            data: {
+                title: $(`.title${id}`).val(),
+                body: $(`.body${id}`).val()
+            }
           })
             // With that done
-            .then(function(data) {
+            .then(function(response) {
               // Log the response
-              console.log(data);
+              console.log(response);
             });
     })
 });

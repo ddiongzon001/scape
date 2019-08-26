@@ -3,4 +3,4 @@
 module.exports = {
     Anime: require("./Anime"),
     Comment: require("./Comment")
-}
+};

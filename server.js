@@ -6,11 +6,6 @@ const mongoose = require("mongoose");
 // initialize express
 const app = express();
 
-// require all models, & routes & set the port
-const db = require("./models");
-require("./routes/routes.js")(app);
-const PORT = process.env.PORT || 8000;
-
 // use morgan logger for logging requests
 app.use(logger("dev"));
 // parse request body as JSON
@@ -18,6 +13,11 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 // make public a static folder
 app.use(express.static("public"));
+
+// require all models, & routes & set the port
+const db = require("./models");
+require("./routes/routes.js")(app);     
+const PORT = process.env.PORT || 8000;
 
 //Connect to the Mongo DB
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoAnimes";
