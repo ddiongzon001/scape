@@ -4,7 +4,11 @@ $(function () {
     $("#render").on("click", function () {
         console.log(`this was clicked!`);
 
-        $.get("/scrape", function(){
+        let season = $("#inlineFormCustomSelectPref").val();
+
+        console.log(season);
+
+        $.get(`/scrape/${season}`, function(){
             console.log("went through this");
         })
 

@@ -16,6 +16,15 @@
             </li>
         </ul>
         <div class="inline">
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Preference</label>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                <option selected>Choose...</option>
+                <option value="spring">spring</option>
+                <option value="summer">summer</option>
+                <option value="fall">fall</option>
+                <option value="winter">winter</option>
+            </select>
+
             <button type="button" class="btn btn-dark" id="render">Get New Anime</button>
             <button type="button" class="btn btn-dark" id="clear">Clear Anime</button>
         </div>
@@ -40,21 +49,24 @@
                     <p class="card-text">{{summary}}</p>
                     <a href="https://www.livechart.me{{link}}" class="btn btn-danger">Learn More!</a>
                 </div>
-                <div id="collapse{{_id}}" class="collapse" aria-labelledby="heading{{_id}}" data-parent="#accordionExample">
+                <div id="collapse{{_id}}" class="collapse" aria-labelledby="heading{{_id}}"
+                    data-parent="#accordionExample">
                     <div class="card-body">
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Title</label>
-                                <input class="form-control title{{_id}}" id="exampleFormControlInput1"
-                                    placeholder="Title Here">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Comment</label>
-                                <textarea class="form-control body{{_id}}" id="exampleFormControlTextarea1" rows="3" placeholder="Comment Here"></textarea>
-                            </div>
-                            <div>
-                                <button type="button" class="btn btn-dark" id="save" data-id="{{_id}}">Save Comment</button>
-                                <button type="button" class="btn btn-dark" id="delete" data-id="{{_id}}">Delete Comment</button>
-                            </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Title</label>
+                            <input class="form-control title{{_id}}" id="exampleFormControlInput1"
+                                placeholder="Title Here">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Comment</label>
+                            <textarea class="form-control body{{_id}}" id="exampleFormControlTextarea1" rows="3"
+                                placeholder="Comment Here"></textarea>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-dark" id="save" data-id="{{_id}}">Save Comment</button>
+                            <button type="button" class="btn btn-dark" id="delete" data-id="{{_id}}">Delete
+                                Comment</button>
+                        </div>
                     </div>
                 </div>
             </div>
