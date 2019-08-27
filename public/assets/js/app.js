@@ -1,4 +1,25 @@
 $(function () {
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    $(document).on("click", "#myBtn", function () {
+        console.log('thisss was clickedd')
+        topFunction();
+    })
 
     // this saves the user's preference of what page they want to get anime from
     $("#render").on("click", function () {
@@ -80,7 +101,7 @@ $(function () {
         $.ajax({
             method: "DELETE",
             url: "/anime/" + id,
-        }).then(function (){
+        }).then(function () {
             console.log('this was deleted')
         });
 
