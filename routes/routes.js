@@ -91,4 +91,18 @@ module.exports = function (app) {
         }).catch(err => console.log(err));
     });
 
+
+    app.get("/saved", function (req, res) {
+        db.Saved.find({})
+            .then(function (dbArticle) {
+                console.log(dbArticle);
+                var hbsObject = {
+                    saved: dbArticle
+                }
+                res.render("saved", hbsObject)
+            }).catch(function (err) {
+                res.json(err);
+            })
+    })
+
 }

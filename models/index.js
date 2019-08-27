@@ -2,5 +2,6 @@
 
 module.exports = {
     Anime: require("./Anime"),
-    Comment: require("./Comment")
+    Comment: require("./Comment"),
+    Saved: require("./Saved")
 };
