@@ -15,6 +15,7 @@
                 <a class="nav-link" href="#">Saved Anime</a>
             </li>
         </ul>
+        {{#if article}}
         <form class="form-inline">
             <label class="my-1 mr-2 info" for="inlineFormCustomSelectPref">Pick an Anime Season</label>
             <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
@@ -35,13 +36,15 @@
             <button type="button" class="btn btn-dark" id="render">Get New Anime</button>
             <button type="button" class="btn btn-dark" id="clear">Clear Anime</button>
         </form>
+        {{/if}}
     </div>
 </nav>
 
 <div id="wrapper">
     <div id="articles">
-        <button id="myBtn" title="Go to top">Top</button>
+        <button id="myBtn" title="Go to top" class="btn btn-danger">Top</button>
         <div class="accordion" id="accordionExample">
+            {{#if article}}
             {{#each article}}
             <div class="card">
                 <div class="card-header" id="heading{{_id}}">
@@ -76,14 +79,38 @@
                         </div>
                         <div>
                             <button type="button" class="btn btn-dark" id="save" data-id="{{_id}}">Save Comment</button>
-                            <button type="button" class="btn btn-dark" id="delete" data-commentId="{{comment._id}}">Delete
+                            <button type="button" class="btn btn-dark" id="delete"
+                                data-commentId="{{comment._id}}">Delete
                                 Comment</button>
                         </div>
                     </div>
                 </div>
             </div>
-
             {{/each}}
+            {{else}}
+            <div class="empty">
+                <h3>THIS PAGE IS EMPTY!</h3>
+                <p>To get new anime, fill out below:</p>
+                <form class="form-inline">
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                        <option selected>Season...</option>
+                        <option value="spring">spring</option>
+                        <option value="summer">summer</option>
+                        <option value="fall">fall</option>
+                        <option value="winter">winter</option>
+                    </select>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref2">
+                        <option selected>Year...</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                    </select>
+
+                    <button type="button" class="btn btn-dark" id="render">Get New Anime</button>
+                </form>
+            </div>
+            {{/if}}
         </div>
     </div>
 </div>
