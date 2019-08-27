@@ -7,14 +7,6 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/saved">Saved Anime</a>
-            </li>
-        </ul>
         {{#if article}}
         <form class="form-inline">
             <label class="my-1 mr-2 info" for="inlineFormCustomSelectPref">Pick an Anime Season</label>
@@ -49,7 +41,6 @@
             <div class="card">
                 <div class="card-header" id="heading{{_id}}">
                     <h5>{{title}}
-                        <i class="fas fa-save" data-id="{{_id}}"></i>
                         {{#if comment}}
                         <i class="fas fa-sticky-note text-success" data-id="{{_id}}" data-toggle="collapse"
                             data-target="#collapse{{_id}}" aria-expanded="true" aria-controls="collapse{{_id}}"></i>
@@ -78,7 +69,6 @@
                                 placeholder="Comment Here"></textarea>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-dark" id="save" data-id="{{_id}}">Save Comment</button>
                             <button type="button" class="btn btn-dark" id="delete"
                                 data-commentId="{{comment._id}}">Delete
                                 Comment</button>

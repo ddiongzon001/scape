@@ -86,9 +86,9 @@ module.exports = function (app) {
     // route for saving a comment for the anime
     app.delete("/anime/:id", function (req, res) {
         db.Comment.remove({ _id: req.params.id })
-        .then(function () {
-            return db.Anime.findOneAndUpdate({ comment: req.params.id }, { $unset: {comment: ""}}, { new: true });
-        }).catch(err => console.log(err));
+            .then(function () {
+                return db.Anime.findOneAndUpdate({ comment: req.params.id }, { $unset: { comment: "" } }, { new: true });
+            }).catch(err => console.log(err));
     });
 
 

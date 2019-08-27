@@ -35,7 +35,7 @@ $(function () {
             console.log("went through this");
         })
 
-        setTimeout(function () { location.reload() }, 5000);
+        setTimeout(function () { location.reload() }, 3000);
     })
 
     // this clears out ALL the animes on the main page
@@ -108,6 +108,4 @@ $(function () {
         location.reload();
     })
 
-    // SAVED FUNCTION AREA
-    
 });
